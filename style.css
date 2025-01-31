@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: darkgray;
+    background-color:lavender;
 }
 
 
@@ -15,7 +15,6 @@ div {
 .square {
     background-color: white;
     margin: 0;
-    opacity: 0.6;
 }
 
 
