@@ -13,10 +13,7 @@ reset.addEventListener("click", () => {
 
 
 function isValid(answer) {
-    if (isNaN(answer)) {
-        return false;
-    }
-    if (answer <= 0) {
+    if (isNaN(answer) || answer <= 0 || answer > 200 || answer % 1 != 0) {
         return false;
     }
     return true;
