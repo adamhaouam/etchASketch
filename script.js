@@ -1,9 +1,9 @@
 const container = document.querySelector(".container");
 const resetButton = document.querySelector("#reset");
 
-setSize();
+setSize(); //Makes initial grid defaulted to 4x4
 
-reset.addEventListener("click", () => {
+reset.addEventListener("click", () => { //Gets input from user and makes new grid based on number
     let answer = prompt("How many columns/rows?: ")
     while (!isValid(answer)) {
         answer = prompt("Please input an integer > 1. How many columns/rows?: ")
@@ -12,7 +12,7 @@ reset.addEventListener("click", () => {
 })
 
 
-function isValid(answer) {
+function isValid(answer) { //Check if input is a valid number between 1 and 200
     if (isNaN(answer) || answer <= 0 || answer > 200 || answer % 1 != 0) {
         return false;
     }
@@ -20,10 +20,9 @@ function isValid(answer) {
 }
 
 
-function shade(box) {
+function shade(box) { //Change colour of box selected
     if (box.classList.contains("coloured")) {
         box.style.opacity = getComputedStyle(box).opacity - 0.1;
-        console.log(getComputedStyle(box).opacity);
     }
     else {
         box.classList.add("coloured");
@@ -32,17 +31,17 @@ function shade(box) {
 }
 
 
-function setSize(row = 4) {
+function setSize(row = 4) { //Clear grid, add new grid with user input
 
-    clearGrid();
-    boxWidth = container.offsetWidth;
+    clearGrid(); //Remove previous grid
 
-    for (let i = 0; i < row * row; i++) {
+    boxWidth = container.offsetWidth; //Get container size
+
+    for (let i = 0; i < row * row; i++) { //Create grid based on inputted rows
         const square = document.createElement("div");
         square.classList.add("square");
         square.style.width = boxWidth / row + "px";
         square.style.height = square.style.width;
-        //alert(square.style.width)
         container.appendChild(square);
     }
 
@@ -64,7 +63,7 @@ function clearGrid() { //Removes all children of container
     }
 }
 
-function randomColour() {
+function randomColour() { //Select Random Colour
     return "hsl(" + 360 * Math.random() + ',' +
              (50 + 90 * Math.random()) + '%,' + 
              (50 + 10 * Math.random()) + '%)'
