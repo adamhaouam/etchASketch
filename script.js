@@ -19,12 +19,9 @@ function shade(box) {
 
 
 function setSize(row = 4) {
-    let child = container.lastElementChild;
-    while (child) {
-        container.removeChild(child);
-        child = container.lastElementChild;
-    }
-        
+
+    clearGrid();
+   
     for (let i = 0; i < row * row; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
@@ -41,3 +38,11 @@ function setSize(row = 4) {
     });
 }
 
+
+function clearGrid() { //Removes all children of container
+    let child = container.lastElementChild;
+    while (child) {
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
+}
