@@ -21,7 +21,14 @@ function isValid(answer) {
 
 
 function shade(box) {
-    box.style.backgroundColor = randomColour();
+    if (box.classList.contains("coloured")) {
+        box.style.opacity = getComputedStyle(box).opacity - 0.1;
+        console.log(getComputedStyle(box).opacity);
+    }
+    else {
+        box.classList.add("coloured");
+        box.style.backgroundColor = randomColour();
+    }
 }
 
 
@@ -62,3 +69,4 @@ function randomColour() {
              (50 + 90 * Math.random()) + '%,' + 
              (50 + 10 * Math.random()) + '%)'
 }
+
