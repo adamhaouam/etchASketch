@@ -12,20 +12,21 @@ reset.addEventListener("click", () => {
 
 
 function shade(box) {
-    //square.classList.add("coloured");
     box.style.backgroundColor = "green";
-    console.log(box);
 }
 
 
 function setSize(row = 4) {
 
     clearGrid();
-   
+    boxWidth = container.offsetWidth;
+
     for (let i = 0; i < row * row; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
-        square.id
+        square.style.width = boxWidth / row + "px";
+        square.style.height = square.style.width;
+        //alert(square.style.width)
         container.appendChild(square);
     }
 
