@@ -4,11 +4,23 @@ const resetButton = document.querySelector("#reset");
 setSize();
 
 reset.addEventListener("click", () => {
-    setSize();
+    let answer = prompt("How many columns/rows?: ")
+    while (!isValid(answer)) {
+        answer = prompt("Please input an integer > 1. How many columns/rows?: ")
+    }
+    setSize(answer);      
 })
 
 
-
+function isValid(answer) {
+    if (isNaN(answer)) {
+        return false;
+    }
+    if (answer <= 0) {
+        return false;
+    }
+    return true;
+}
 
 
 function shade(box) {
