@@ -21,7 +21,7 @@ function isValid(answer) {
 
 
 function shade(box) {
-    box.style.backgroundColor = "green";
+    box.style.backgroundColor = randomColour();
 }
 
 
@@ -55,4 +55,10 @@ function clearGrid() { //Removes all children of container
         container.removeChild(child);
         child = container.lastElementChild;
     }
+}
+
+function randomColour() {
+    return "hsl(" + 360 * Math.random() + ',' +
+             (50 + 90 * Math.random()) + '%,' + 
+             (50 + 10 * Math.random()) + '%)'
 }
